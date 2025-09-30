@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+gitd-demo/
+ ├── main.go
+ ├── go.mod
+ └── README.md
+package main
 
-## Getting Started
+import (
+    "fmt"
+    "os/exec"
+)
 
-First, run the development server:
+func main() {
+    fmt.Println("🔧 Simple GitD Demo Running...")
+
+    // 运行一个 git 命令测试
+    out, err := exec.Command("git", "--version").Output()
+    if err != nil {
+        fmt.Println("❌ Error running git:", err)
+        return
+    }
+    fmt.Println("✅ Git Version:", string(out))
+}
+module github.com/你的用户名/gitd-demo
+
+go 1.21
+# GitD Demo
+
+A minimal demo project inspired by [codexfield/gitd](https://github.com/codexfield/gitd).
+
+## Run
 
 ```bash
+go run main.go
+git init
+git add .
+git commit -m "initial demo commit"
+git branch -M main
+git remote add origin https://github.com/你的用户名/gitd-demo.git
+git push -u origin main
+# Demo Kong 🦍
+
+> 一个轻量、好玩的示例项目：**一键启动、秒懂结构、方便扩展**。  
+> A playful, lightweight demo you can run in minutes and extend easily.
+
+<p align="left">
+  <a href="https://github.com/KongKong666/demo-kong/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/KongKong666/demo-kong?style=flat"></a>
+  <a href="https://github.com/KongKong666/demo-kong/issues"><img alt="Issues" src="https://img.shields.io/github/issues/KongKong666/demo-kong"></a>
+  <a href="#-license"><img alt="License" src="https://img.shields.io/badge/license-MIT-green"></a>
+  <img alt="Made with ❤️" src="https://img.shields.io/badge/made%20with-❤️-ff69b4">
+</p>
+
+---
+
+## ✨ 特性 | Features
+
+- 🚀 **一键启动**：本地或 Docker 都可跑
+- 🧱 **清晰结构**：规范的目录与脚本
+- 🧩 **易扩展**：新增模块/页面不破坏现有代码
+- 🔧 **零门槛**：只需要 Node.js 或 Docker 就能玩
+
+---
+
+## 🧪 在线预览（可选）
+
+> 在这里放你的线上地址，或者 GitHub Pages 地址  
+> _e.g._ **https://kongkong666.github.io/demo-kong/**
+
+---
+
+## 🛠️ 快速开始 | Quick Start
+
+### 方案 A：Node.js（推荐）
+```bash
+# 1) 克隆（若已在你仓库里，跳过）
+git clone https://github.com/KongKong666/demo-kong.git
+cd demo-kong
+
+# 2) 安装依赖（演示用 npm，也可用 pnpm / yarn）
+npm install
+
+# 3) 本地启动开发服务
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 4) 生产构建（可选）
+npm run build
